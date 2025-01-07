@@ -1,4 +1,12 @@
-import { Entity, Column, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn } from 'typeorm';
+import {
+    Entity,
+    Column,
+    PrimaryGeneratedColumn,
+    CreateDateColumn,
+    UpdateDateColumn,
+    OneToMany
+} from 'typeorm';
+import { Property } from '../properties/properties.entity';
 
 @Entity('users') // 注意表名必须与数据库中的表名一致
 export class User {
@@ -33,4 +41,8 @@ export class User {
         onUpdate: 'CURRENT_TIMESTAMP',
     })
     updated_at: Date = new Date(); // 添加默认值
+
+    // 添加与 Property 的一对多关系
+    @OneToMany(() => Property, (property) => property.landlord_id)
+    properties!: Property[]; // 每个用户可能拥有多个房产
 }
