@@ -1,0 +1,14 @@
+eth.accounts
+node ../js/test.js
+node ../js/test1.js
+node test1.js
+node
+node test.js
+eth.accounts
+eth.push
+eth.push('')
+push
+help
+help()
+personal
+eth.accounts

@@ -1,0 +1,2 @@
+geth --http --http.corsdomain="https://remix.ethereum.org" --http.api web3,eth,debug,personal,net --vmdebug --datadir .\chain\data --dev console --allow-insecure-unlock --rpc.enabledeprecatedpersonal
+pause
