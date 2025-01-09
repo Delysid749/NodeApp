@@ -30,6 +30,9 @@ export class Contract {
     @Column({ type: 'decimal', precision: 10, scale: 2, nullable: false })
     rent_amount!: number;
 
+    @Column({ type: 'decimal', precision: 10, scale: 2, nullable: false })
+    deposit_amount!: number;
+
     @Column({ type: 'varchar', length: 64, nullable: false })
     ipfs_hash!: string;
 
@@ -39,6 +42,15 @@ export class Contract {
         default: 'draft',
     })
     status!: 'draft' | 'signed' | 'completed' | 'disputed';
+
+    @Column({ type: 'varchar', length: 66, nullable: true })
+    chain_transaction_hash!: string;
+
+    @Column({ type: 'timestamp', nullable: true })
+    start_time!: Date;
+
+    @Column({ type: 'timestamp', nullable: true })
+    end_time!: Date;
 
     @CreateDateColumn({ type: 'timestamp', default: () => 'CURRENT_TIMESTAMP' })
     created_at!: Date;
